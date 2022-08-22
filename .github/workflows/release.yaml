@@ -49,7 +49,7 @@ jobs:
           git push --follow-tags
 
       - name: Publish npm package
-        run: yarn publish --access restricted
+        run: yarn publish --access restricted --verbose
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
