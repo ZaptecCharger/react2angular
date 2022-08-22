@@ -13,7 +13,6 @@
     "clean": "rimraf ./*.d.ts && rimraf ./*.map",
     "lint": "tslint --fix -p ./tsconfig.json index.tsx test.tsx",
     "pretest": "npm run build",
-    "prepublishOnly": "npm test",
     "test": "karma start --single-run",
     "tdd": "npm-run-all -pr watch:*",
     "watch:ts": "tsc -w",
