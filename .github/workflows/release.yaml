@@ -47,7 +47,9 @@ jobs:
           npm version ${{ github.event.inputs.release_type }}
           echo "release_version=`git describe`" >> $GITHUB_ENV
           git push --follow-tags
-          cat .npmrc
+          pwd
+          ls .
+          cat /home/runner/work/_temp/.npmrc
 
       - name: Publish npm package
         run: yarn publish --access restricted
