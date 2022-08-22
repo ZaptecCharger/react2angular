@@ -1,0 +1,62 @@
+name: Release
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: "The type of release (one of 'patch', 'minor', or 'major')"
+        required: true
+        default: patch
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  build_release:
+    name: Build & release
+    runs-on: ubuntu-20.04
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.x"
+          node-version-file: ".nvmrc"
+          registry-url: "https://npm.pkg.github.com"
+
+      - name: Install dependencies
+        env:
+          GITHUB_PACKAGES_PAT: ${{ secrets.GITHUB_TOKEN }}
+        run: yarn install --immutable
+
+      - name: Build
+        run: yarn run build
+
+      - name: Prepare release version
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          npm version ${{ github.event.inputs.release_type }}
+          echo "release_version=`git describe`" >> $GITHUB_ENV
+          git push --follow-tags
+
+      - name: Publish npm package
+        run: yarn npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.release_version }}
+          release_name: Release ${{ env.release_version }}
