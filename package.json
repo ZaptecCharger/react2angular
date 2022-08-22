@@ -1,6 +1,6 @@
 {
   "name": "@zapteccharger/react2angular",
-  "version": "4.0.19",
+  "version": "4.0.20",
   "description": "The easiest way to embed React components in Angular 1 apps!",
   "main": "index.js",
   "main:esnext": "index.es2015.js",
@@ -29,6 +29,10 @@
   ],
   "author": "Boris Cherny <boris@performancejs.com>",
   "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/coatue-oss/react2angular/issues"
+  },
+  "homepage": "https://github.com/coatue-oss/react2angular#readme",
   "peerDependencies": {
     "@types/angular": ">=1.5",
     "@types/prop-types": ">=15",
