@@ -5,11 +5,13 @@ import { ComponentType, ElementType, useEffect, useRef } from 'react'
 import { render, unmountComponentAtNode } from 'react-dom'
 import NgComponent from 'tlvince-ngcomponent'
 
+type ChildrenArray = (HTMLElement | Document | Text | Comment)[]
+
 /**
  * Appends DOM nodes to a `<div>`, tracking lifecycle.
  * To be used by R2AComponent only
  */
-const R2AChildrenWrapper = ({ domChildren }: { domChildren: HTMLElement[] }) => {
+const R2AChildrenWrapper = ({ domChildren }: { domChildren: ChildrenArray }) => {
   const childrenWrapperRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -32,7 +34,7 @@ const R2AChildrenWrapper = ({ domChildren }: { domChildren: HTMLElement[] }) => 
  * Renders a React component with existing DOM nodes as children.
  * The DOM nodes are injected into a child "R2AChildrenWrapper" component so that the original React component can control its display of child nodes transparently
  */
-const R2AComponent = ({ domChildren, component, props }: { domChildren: HTMLElement[], component: ElementType, props: any}) => {
+const R2AComponent = ({ domChildren, component, props }: { domChildren: ChildrenArray, component: ElementType, props: any}) => {
   const Component = component
 
   return (
@@ -78,7 +80,7 @@ export function react2angular<Props>(
       }
       render() {
         if (!this.isDestroyed) {
-          const domChildren = this.$element.children().toArray()
+          const domChildren = this.$element.contents().toArray() as ChildrenArray
           render(
             <R2AComponent domChildren={domChildren} component={Class} props={{...this.props, ...this.injectedProps}} />,
             this.$element[0]
