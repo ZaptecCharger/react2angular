@@ -1,3 +1,18 @@
+# @ZaptecCharger/react2angular
+
+A fork of [react2angular](https://github.com/coatue-oss/react2angular) adding support for child components, and browser-friendly builds.
+
+This repo is configured to build an NPM package and deploy it to the GitHub NPM registry. To use the package as a dependency you will need to use a [Personal Access Token (PAT)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages). Once you have a PAT, crete a `.nvmrc` file in your project with these contents:
+
+```text
+//npm.pkg.github.com/:_authToken=PAT_TOKEN
+@zapteccharger:registry=https://npm.pkg.github.com
+```
+
+You can then add a dependency to `@zapteccharger/reactangular` via Yarn or NPM.
+
+Below is the original README as found upstream:
+
 <img alt="React to Angular: The easiest way to use React components in Angular 1" src="https://raw.githubusercontent.com/coatue-oss/react2angular/master/logo.png" width="400px" />
 
 # react2angular [![Build Status](https://img.shields.io/circleci/project/coatue-oss/react2angular.svg?branch=master&style=flat-square)](https://circleci.com/gh/coatue-oss/react2angular) [![NPM](https://img.shields.io/npm/v/react2angular.svg?style=flat-square)](https://www.npmjs.com/package/react2angular) [![Apache2](https://img.shields.io/npm/l/react2angular.svg?style=flat-square)](https://opensource.org/licenses/Apache2)
