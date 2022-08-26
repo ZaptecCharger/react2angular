@@ -11,7 +11,7 @@
     "build": "npm run clean && npm run lint && tsc -d -t es2015 && mv ./index.js ./index.es2015.js && tsc -t es5",
     "postbuild": "rollup -c",
     "clean": "rimraf ./*.d.ts && rimraf ./*.map",
-    "lint": "tslint --fix -p ./tsconfig.json index.tsx test.tsx",
+    "lint": "tslint --fix -p ./tsconfig.json index.tsx",
     "pretest": "npm run build",
     "test": "karma start --single-run",
     "tdd": "npm-run-all -pr watch:*",

@@ -22,8 +22,7 @@
     "target": "es2015"
   },
   "files": [
-    "index.tsx",
-    "test.tsx"
+    "index.tsx"
   ],
   "exclude": [
     "node_modules"
