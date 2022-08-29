@@ -2,12 +2,19 @@
 
 A fork of [react2angular](https://github.com/coatue-oss/react2angular) adding support for child components, and browser-friendly builds.
 
-This repo is configured to build an NPM package and deploy it to the GitHub NPM registry. To use the package as a dependency you will need to use a [Personal Access Token (PAT)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages). Once you have a PAT, crete a `.nvmrc` file in your project with these contents:
+This repo is configured to build an NPM package and deploy it to the GitHub NPM registry. To use the package as a dependency you will need to:
 
-```text
-//npm.pkg.github.com/:_authToken=PAT_TOKEN
-@zapteccharger:registry=https://npm.pkg.github.com
-```
+- Acquire a [GitHub PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). The only permission you need to grant is `read:packages`.
+- Crete a `.nvmrc` file in your project with these contents:
+
+  ```text
+  //npm.pkg.github.com/:_authToken=${ZAPTEC_GITHUB_TOKEN}
+  @zapteccharger:registry=https://npm.pkg.github.com/
+  ```
+
+- Assign the PAT to the `ZAPTEC_GITHUB_TOKEN` environment variable:
+  - Mac/Linux: add the line `export ZAPTEC_GITHUB_TOKEN=<PAT>` to `~/.bash_profile` and restart the terminal
+  - Windows: Run `setx ZAPTEC_GITHUB_TOKEN <PAT> /m` and restart the terminal
 
 You can then add a dependency to `@zapteccharger/react2angular` via Yarn or NPM.
 
