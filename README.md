@@ -1,4 +1,4 @@
-# @ZaptecCharger/react2angular
+# @zapteccharger/react2angular
 
 A fork of [react2angular](https://github.com/coatue-oss/react2angular) adding support for child components, and browser-friendly builds.
 
@@ -6,10 +6,10 @@ This repo is configured to build an NPM package and deploy it to the GitHub NPM 
 
 ```text
 //npm.pkg.github.com/:_authToken=PAT_TOKEN
-@ZaptecCharger:registry=https://npm.pkg.github.com
+@zapteccharger:registry=https://npm.pkg.github.com
 ```
 
-You can then add a dependency to `@ZaptecCharger/react2angular` via Yarn or NPM.
+You can then add a dependency to `@zapteccharger/react2angular` via Yarn or NPM.
 
 Below is the original README as found upstream:
 
