@@ -6,6 +6,10 @@
   "main:esnext": "index.es2015.js",
   "typings": "index.d.ts",
   "browser": "index.browser.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZaptecCharger/react2angular.git"
+  },
   "scripts": {
     "prebuild": "npm run clean; tsc -d -t es6 -m es6 && mv ./index.js ./index.es6.js",
     "build": "npm run clean && npm run lint && tsc -d -t es2015 && mv ./index.js ./index.es2015.js && tsc -t es5",
