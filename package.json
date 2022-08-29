@@ -1,6 +1,6 @@
 {
   "name": "@zapteccharger/react2angular",
-  "version": "4.1.7",
+  "version": "4.1.8",
   "description": "The easiest way to embed React components in Angular 1 apps!",
   "main": "index.js",
   "main:esnext": "index.es2015.js",
