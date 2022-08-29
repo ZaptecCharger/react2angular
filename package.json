@@ -1,5 +1,5 @@
 {
-  "name": "@zapteccharger/react2angular",
+  "name": "@ZaptecCharger/react2angular",
   "version": "4.1.0",
   "description": "The easiest way to embed React components in Angular 1 apps!",
   "main": "index.js",
