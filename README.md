@@ -6,10 +6,10 @@ This repo is configured to build an NPM package and deploy it to the GitHub NPM 
 
 ```text
 //npm.pkg.github.com/:_authToken=PAT_TOKEN
-@zapteccharger:registry=https://npm.pkg.github.com
+@ZaptecCharger:registry=https://npm.pkg.github.com
 ```
 
-You can then add a dependency to `@zapteccharger/reactangular` via Yarn or NPM.
+You can then add a dependency to `@ZaptecCharger/react2angular` via Yarn or NPM.
 
 Below is the original README as found upstream:
 
